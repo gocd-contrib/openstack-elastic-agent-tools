@@ -59,11 +59,11 @@ def handle(name, cfg, cloud, log, _args):
       util.chownbyname(go_server_config,"go","go")
 
     if os.path.exists(go_agent_default):
-      util.chmod(go_agent_default,0644)
-    
+      util.chmod(go_agent_default, '0644')
+
     # Start Go Agent
     util.subp(['service', 'go-agent', 'start'])
 
   except:
-    log.debug("Error configuring Go Agent")
+    log.error("Error configuring Go Agent")
     return
